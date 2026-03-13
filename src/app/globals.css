@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.hero-gradient-bg {
+  @apply bg-hero-gradient;
+}
+
