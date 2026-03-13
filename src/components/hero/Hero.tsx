@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -19,6 +19,10 @@ const textVariants = {
 };
 
 export function Hero() {
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0, 0.5], [0, 60]);
+  const blurBackdrop = useTransform(scrollYProgress, [0, 0.5], ["24px", "40px"]);
+
   return (
     <section className="grid items-center gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
       <motion.div
@@ -80,8 +84,14 @@ export function Hero() {
         </div>
       </motion.div>
 
-      <div className="relative h-[320px] overflow-visible md:h-[420px]">
-        <div className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.3),_transparent_60%),radial-gradient(circle_at_bottom,_rgba(147,51,234,0.16),_transparent_60%)] blur-3xl" />
+      <motion.div
+        style={{ y: yParallax }}
+        className="relative h-[320px] overflow-visible md:h-[420px]"
+      >
+        <motion.div
+          className="pointer-events-none absolute -inset-16 -z-10 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.3),_transparent_60%),radial-gradient(circle_at_bottom,_rgba(147,51,234,0.16),_transparent_60%)] blur-3xl"
+          style={{ filter: blurBackdrop }}
+        />
         <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/10 bg-white/5/60 shadow-[0_0_80px_rgba(56,189,248,0.25)] backdrop-blur-xl" />
 
         <HeroCanvas />
@@ -90,7 +100,7 @@ export function Hero() {
           <span>Realtime motion preview</span>
           <span>3D powered by Three.js</span>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
