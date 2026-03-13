@@ -1,4 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+"use client";
+
+import { motion, useTransform, useViewportScroll } from "@/lib/motion";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -19,7 +21,7 @@ const textVariants = {
 };
 
 export function Hero() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useViewportScroll();
   const yParallax = useTransform(scrollYProgress, [0, 0.5], [0, 60]);
   const blurBackdrop = useTransform(scrollYProgress, [0, 0.5], ["24px", "40px"]);
 

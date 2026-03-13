@@ -1,3 +1,5 @@
+ "use client";
+
 import { SectionShell } from "@/components/layout/SectionShell";
 import { useState } from "react";
 
