@@ -1,14 +1,7 @@
 import { SectionShell } from "@/components/layout/SectionShell";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
-const logos = [
-  "Linear",
-  "Vercel",
-  "Figma",
-  "Notion",
-  "Superhuman",
-  "Cron"
-];
+const logos = ["Linear", "Vercel", "Figma", "Notion", "Superhuman", "Cron", "Security"];
 
 export function Logos() {
   return (
