@@ -27,19 +27,19 @@ export function FAQ() {
       eyebrow="FAQ"
       title="Ответы на вопросы до того, как вы их задали"
     >
-      <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-slate-950/60 p-5 backdrop-blur-xl">
+      <div className="divide-y divide-white/10 rounded-3xl border border-white/10 bg-gradient-to-b from-slate-900/70 to-slate-950/60 p-5 shadow-[0_18px_60px_rgba(2,6,23,0.7)] backdrop-blur-xl">
         {items.map((item, idx) => {
           const open = idx === openIndex;
           return (
             <button
               key={item.q}
               type="button"
-              className="flex w-full flex-col gap-2 py-4 text-left text-sm text-white/80"
+              className="flex w-full flex-col gap-2 rounded-xl py-4 text-left text-sm text-white/80 transition hover:bg-white/[0.03]"
               onClick={() => setOpenIndex(open ? -1 : idx)}
             >
               <div className="flex items-center justify-between gap-4">
-                <span>{item.q}</span>
-                <span className="text-xs text-white/50">
+                <span className="font-medium text-white/85">{item.q}</span>
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs text-white/60">
                   {open ? "–" : "+"}
                 </span>
               </div>

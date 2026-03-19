@@ -1,5 +1,5 @@
 import { SectionShell } from "@/components/layout/SectionShell";
-import { motion } from "framer-motion";
+import { motion } from "@/lib/motion";
 
 const steps = [
   {
@@ -31,7 +31,7 @@ export function HowItWorks() {
         {steps.map((step, index) => (
           <motion.div
             key={step.label}
-            className="group relative flex flex-col gap-3 rounded-2xl border border-white/10 bg-slate-900/60 p-5 backdrop-blur-xl"
+            className="group relative flex flex-col gap-3 rounded-3xl border border-white/10 bg-gradient-to-b from-slate-900/80 to-slate-950/50 p-6 backdrop-blur-xl transition hover:-translate-y-0.5"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -41,8 +41,8 @@ export function HowItWorks() {
               ease: [0.22, 1, 0.36, 1]
             }}
           >
-            <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),_transparent_55%)] opacity-0 transition group-hover:opacity-100" />
-            <div className="relative text-xs font-mono text-primary-300/80">
+            <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.2),_transparent_55%)] opacity-0 transition group-hover:opacity-100" />
+            <div className="relative inline-flex w-fit rounded-full border border-primary-300/25 bg-primary-500/10 px-2.5 py-1 text-xs font-mono text-primary-200">
               {step.label}
             </div>
             <div className="relative space-y-2">

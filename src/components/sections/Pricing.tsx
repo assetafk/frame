@@ -48,7 +48,7 @@ export function Pricing() {
         {tiers.map((tier) => (
           <div
             key={tier.name}
-            className={`relative flex flex-col gap-4 rounded-2xl border bg-white/5 p-6 text-sm shadow-[0_18px_60px_rgba(15,23,42,0.7)] backdrop-blur-xl ${
+            className={`group relative flex flex-col gap-4 rounded-3xl border bg-gradient-to-b from-white/10 to-white/[0.03] p-6 text-sm shadow-[0_18px_60px_rgba(15,23,42,0.7)] backdrop-blur-xl transition hover:-translate-y-0.5 ${
               tier.highlight
                 ? "border-primary-400/60 ring-2 ring-primary-400/40"
                 : "border-white/10"
@@ -59,7 +59,8 @@ export function Pricing() {
                 Most popular
               </span>
             )}
-            <div>
+            <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_60%)] opacity-0 transition group-hover:opacity-100" />
+            <div className="relative">
               <h3 className="text-base font-semibold text-white">
                 {tier.name}
               </h3>
@@ -72,7 +73,7 @@ export function Pricing() {
                 </span>
               </p>
             </div>
-            <ul className="mt-2 flex flex-1 flex-col gap-2 text-xs text-white/70">
+            <ul className="relative mt-2 flex flex-1 flex-col gap-2 text-xs text-white/70">
               {tier.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-2">
                   <span className="mt-[4px] inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -81,7 +82,8 @@ export function Pricing() {
               ))}
             </ul>
             <button
-            type="button"
+              type="button"
+              aria-label={`Start ${tier.name} plan`}
               className={`mt-2 inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition ${
                 tier.highlight
                   ? "bg-white text-background hover:bg-primary-300"
