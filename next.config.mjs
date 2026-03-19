@@ -11,10 +11,18 @@ const nextConfig = {
           "img-src 'self' data: https:",
           "font-src 'self' data: https:",
           "connect-src 'self'",
+          "object-src 'none'",
+          "frame-src 'none'",
           "frame-ancestors 'self'",
           "base-uri 'self'",
-          "form-action 'self'"
+          "form-action 'self'",
+          "upgrade-insecure-requests",
+          "block-all-mixed-content"
         ].join("; ")
+      },
+      {
+        key: "Cross-Origin-Embedder-Policy",
+        value: "require-corp"
       },
       {
         key: "Cross-Origin-Opener-Policy",
